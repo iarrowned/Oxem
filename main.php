@@ -1,4 +1,5 @@
 <?php
+    // PHP version 7.4
     // Connecting classes
     require_once 'src/Animal.php';
     require_once 'src/Chicken.php';
