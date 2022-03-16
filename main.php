@@ -1,42 +1,39 @@
 <?php
     // PHP version 7.4
-    // Connecting classes
-    require_once 'src/Animal.php';
-    require_once 'src/Chicken.php';
-    require_once 'src/Cow.php';
-    require_once 'src/Farm.php';
+
+    require_once 'vendor/autoload.php';
 
     // Initialize Farm() object
-    $f = new Farm();
+    $farm = new Farm();
 
     // Add animals in farm
     for ($i = 0; $i < 20; $i++)
     {
-        $f->addAnimal(new Chicken());
-        if ($i < 10) $f->addAnimal(new Cow());
+        $farm->addAnimal(new Chicken());
+        if ($i < 10) $farm->addAnimal(new Cow());
     }
 
     // Show animals count in farm
-    $f->getAnimalsCount();
+    print_r($farm->getAnimalsCount());
 
     // Collect products from the animals
-    for ($i = 0; $i < 7; $i++) $f->collect();
+    for ($i = 0; $i < 7; $i++) $farm->collect();
 
     // Show storage
-    $f->getStorage();
+    print_r($farm->getStorage());
 
     // Add new animals in farm
     for($i = 0; $i < 5; $i++)
     {
-        $f->addAnimal(new Chicken());
-        if ($i < 1) $f->addAnimal(new Cow());
+        $farm->addAnimal(new Chicken());
+        if ($i < 1) $farm->addAnimal(new Cow());
     }
 
     // Show animals count in farm
-    $f->getAnimalsCount();
+    print_r($farm->getAnimalsCount());
 
     // Collect products from the animals
-    for ($i = 0; $i < 7; $i++) $f->collect();
+    for ($i = 0; $i < 7; $i++) $farm->collect();
 
     // Show storage
-    $f->getStorage();
+    print_r($farm->getStorage());

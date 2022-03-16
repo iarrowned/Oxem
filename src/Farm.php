@@ -10,12 +10,6 @@ class Farm
     protected array $animals = [];
 
     /**
-     * Associative array of the animal => quantity type
-     * @var array $animalsCount
-     */
-    protected array $animalsCount = [];
-
-    /**
      * Associative array of the product => quantity type
      * @var array $storage
      */
@@ -30,14 +24,6 @@ class Farm
     public function addAnimal(Animal $animal)
     {
         array_push($this->animals, $animal);
-        if (array_key_exists($animal->getAnimalType(), $this->animalsCount))
-        {
-            $this->animalsCount[$animal->getAnimalType()] += 1;
-        }
-        else
-        {
-            $this->animalsCount[$animal->getAnimalType()] = 1;
-        }
     }
 
     /**
@@ -51,34 +37,38 @@ class Farm
 
 
     /**
-     * Outputs the number of animals as a string
+     * Outputs the number of animals.
+     * @return array
      */
-    public function getAnimalsCount()
+    public function getAnimalsCount(): array
     {
-        if (!empty($this->animalsCount))
+        /**
+         * @var Animal $animal
+         */
+        $animalsCount = [];
+        foreach ($this->animals as $animal)
         {
-            foreach ($this->animalsCount as $animal => $count)
+            if (array_key_exists($animal->getAnimalType(), $animalsCount))
             {
-                echo $animal . ' in farm: ' . $count . PHP_EOL;
+                $animalsCount[$animal->getAnimalType()] += 1;
+            }
+            else
+            {
+                $animalsCount[$animal->getAnimalType()] = 1;
             }
         }
-        else echo "No animals in farm";
+        return $animalsCount;
     }
 
     /**
-     * Outputs the number of products as a string
+     * Outputs the number of products.
+     * @return array
      */
-    public function getStorage()
+    public function getStorage(): array
     {
         $storage = $this->storage;
         $this->storage = [];
-        if (!empty($storage))
-        {
-            foreach ($storage as $k => $v) {
-                echo $k . ' collected: ' . $v . PHP_EOL;
-            }
-        }
-        else echo "Storage is empty";
+        return $storage;
     }
 
     /**

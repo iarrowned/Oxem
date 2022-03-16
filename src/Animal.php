@@ -1,6 +1,7 @@
 <?php
 
 
+
 abstract class Animal
 {
 
@@ -21,12 +22,6 @@ abstract class Animal
      * @var string $productName Product name
      */
     protected string $productName;
-
-    /**
-     * Measure unit for product quantity output.
-     * @var string $measureUnit Measure unit
-     */
-    protected string $measureUnit;
 
 
     /**
