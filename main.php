@@ -1,11 +1,11 @@
 <?php
     // PHP version 7.4
-
+require_once 'vendor/autoload.php';
 use Classes\Chicken;
 use Classes\Cow;
 use Classes\Farm;
 
-require_once 'vendor/autoload.php';
+
 
     // Initialize Farm() object
     $farm = new Farm();
