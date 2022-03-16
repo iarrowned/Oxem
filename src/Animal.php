@@ -1,5 +1,5 @@
 <?php
-
+namespace Classes;
 
 
 abstract class Animal

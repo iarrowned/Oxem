@@ -1,7 +1,11 @@
 <?php
     // PHP version 7.4
 
-    require_once 'vendor/autoload.php';
+use Classes\Chicken;
+use Classes\Cow;
+use Classes\Farm;
+
+require_once 'vendor/autoload.php';
 
     // Initialize Farm() object
     $farm = new Farm();
@@ -29,6 +33,8 @@
         if ($i < 1) $farm->addAnimal(new Cow());
     }
 
+    // Sell production from storage.
+    $farm->sellProducts();
     // Show animals count in farm
     print_r($farm->getAnimalsCount());
 

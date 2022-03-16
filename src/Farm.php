@@ -1,5 +1,5 @@
 <?php
-
+namespace Classes;
 
 class Farm
 {
@@ -66,9 +66,7 @@ class Farm
      */
     public function getStorage(): array
     {
-        $storage = $this->storage;
-        $this->storage = [];
-        return $storage;
+        return $this->storage;
     }
 
     /**
@@ -81,23 +79,27 @@ class Farm
         /**
          * @var Animal $animal
          */
-        if (!empty($this->animals))
+        foreach ($this->animals as $animal)
         {
-            foreach ($this->animals as $animal)
+            $prod = $animal->getProductName();
+            if (array_key_exists($prod, $this->storage))
             {
-                $prod = $animal->getProductName();
-                if (array_key_exists($prod, $this->storage))
-                {
-                    $this->storage[$prod] += $animal->getProducts();
+                $this->storage[$prod] += $animal->getProducts();
 
-                }
-                else
-                {
-                    $this->storage[$prod] = $animal->getProducts();
-                }
+            }
+            else
+            {
+                $this->storage[$prod] = $animal->getProducts();
             }
         }
-        else echo "No animals to collect production";
     }
 
+    /**
+     * Clears the storage array, simulating the sale of products.
+     * If not triggered, the accumulation of products occurs.
+     */
+    public function sellProducts()
+    {
+        $this->storage = [];
+    }
 }

@@ -7,7 +7,9 @@
         }
     ],
     "require": {},
-    "autoload":{
-        "files": ["src/Farm.php", "src/Animal.php", "src/Cow.php", "src/Chicken.php"]
+    "autoload": {
+        "psr-4": {
+            "Classes\\": "src"
+        }
     }
 }
