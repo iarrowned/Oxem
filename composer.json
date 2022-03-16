@@ -1,0 +1,13 @@
+{
+    "name": "14kra/oxem",
+    "authors": [
+        {
+            "name": "Kirill",
+            "email": "14krabik14@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "files": ["src/Farm.php", "src/Animal.php", "src/Cow.php", "src/Chicken.php"]
+    }
+}
